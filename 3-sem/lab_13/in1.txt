@@ -1,0 +1,5 @@
+Rock; Radiohead; 1997
+Grange; Nirvana; 1991
+Rock; Beatles; 1966
+Britpop; Oasis; 1994
+Alternative; R.E.M.; 1992

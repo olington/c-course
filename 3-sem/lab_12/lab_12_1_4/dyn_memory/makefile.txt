@@ -1,0 +1,20 @@
+GCC := gcc
+FLAGS := -std=c99 -Wall -Werror -D EXPORTS -c -ggdb
+OBJF := main_func.o key.dll mysort.dll mysorttest.o keytest.o
+LIBF := -lmysort -lkey
+
+
+%.o : %.c *.h
+	$(GCC) $(FLAGS) -c $<
+
+%.dll : %_lib.o
+	$(GCC) -shared $^ -Wl,--subsystem,windows -o $@
+
+app.exe : $(OBJF) main.o
+	$(GCC) $^ -L. $(LIBF) -o $@
+
+test.exe : $(OBJF) test.o
+	$(GCC) $^ -L. $(LIBF) -o $@
+
+clean :
+	rm *.o *.exe *.dll

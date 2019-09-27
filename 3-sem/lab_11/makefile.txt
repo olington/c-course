@@ -1,0 +1,12 @@
+CC := gcc
+CFLAGS := -std=c99 -Wall -Werror -pedantic
+OBJS := my_string.o my_snprintf.o
+
+main.exe : $(OBJS) main.o
+	$(CC) $(CFLAGS) $^ -o main.exe
+
+%.o : %.c *.h
+	$(CC) $(CFLAGS) -c $<
+
+clean :
+	$(RM) $(CLEAR)
